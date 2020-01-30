@@ -6,22 +6,23 @@ class MajorSerializer(serializers.HyperlinkedModelSerializer):
         model = Major
         fields = ['name',]
 
-class SubjectSerializer(serializers.HyperlinkedModelSerializer):
-    major= MajorSerializer(Major.objects.all())
-    class Meta:
-        model = Subject
-        fields = ['name','level','major','description','type']
+
 
 class NotebookSerializer(serializers.HyperlinkedModelSerializer):
-    subject=SubjectSerializer(Subject.objects.all())
     class Meta:
         model = Notebook
-        fields = ['name','author','description','link','subject']
+        fields = ['name','author','description','link']
 
 class TestbankSerializer(serializers.HyperlinkedModelSerializer):
-    subject = SubjectSerializer(Subject.objects.all())
     class Meta:
         model = Testbank
-        fields = ['name','type','reference','link','subject']
+        fields = ['name','type','reference','link']
 
 
+class SubjectSerializer(serializers.HyperlinkedModelSerializer):
+    major= MajorSerializer(Major.objects.all())
+    notebook=NotebookSerializer(Notebook.objects.all(),many=True)
+    testbank=TestbankSerializer(Testbank.objects.all(),many=True)
+    class Meta:
+        model = Subject
+        fields = ['name','level','major','description','type','notebook','testbank']

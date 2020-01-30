@@ -9,7 +9,7 @@ class Major(models.Model):
 
 class Subject(models.Model):
     name=models.CharField(max_length=150)
-    level=models.IntegerField(max_length=1)
+    level=models.IntegerField(default=1)
     type=models.CharField(max_length=50)
     description=models.TextField(null=True)
     major=models.ForeignKey(Major,on_delete=models.CASCADE)

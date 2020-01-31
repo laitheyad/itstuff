@@ -23,4 +23,5 @@ urlpatterns = [
     path('subjects/', views.SubjectList.as_view()),
     path('notebook/', views.NotebookList.as_view()),
     path('testbanks/', views.TestbankList.as_view()),
+    path('subjects/<int:pk>/', views.SubjectDetail.as_view()),
 ]

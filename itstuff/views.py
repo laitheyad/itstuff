@@ -2,6 +2,10 @@ from django.shortcuts import render
 from .models import *
 from .serializers import *
 from rest_framework import generics
+from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+
 
 class MajorList(generics.ListCreateAPIView):
     queryset = Major.objects.all()
@@ -9,7 +13,7 @@ class MajorList(generics.ListCreateAPIView):
 
 class SubjectList(generics.ListCreateAPIView):
     queryset = Subject.objects.all()
-    serializer_class = SubjectSerializer
+    serializer_class = SubjectListSerializer
 
 class NotebookList(generics.ListCreateAPIView):
     queryset = Notebook.objects.all()
@@ -19,3 +23,13 @@ class TestbankList(generics.ListCreateAPIView):
     queryset = Testbank.objects.all()
     serializer_class = TestbankSerializer
 
+class SubjectDetail(APIView):
+
+    def get_object(self,pk):
+        return get_object_or_404(Subject,pk=pk)
+
+
+    def get(self,request,pk):
+        object=self.get_object(pk)
+        serializer=SubjectSerializer(object)
+        return Response(serializer.data)

@@ -4,19 +4,19 @@ from rest_framework import serializers
 class MajorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Major
-        fields = ['name',]
+        fields = ['pk','name',]
 
 
 
 class NotebookSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Notebook
-        fields = ['name','author','description','link']
+        fields = ['pk','name','author','description','link']
 
 class TestbankSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Testbank
-        fields = ['name','type','reference','link']
+        fields = ['pk','name','type','reference','link']
 
 class SubjectListSerializer(serializers.HyperlinkedModelSerializer):
     major= MajorSerializer(Major.objects.all())

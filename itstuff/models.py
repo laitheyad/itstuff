@@ -26,6 +26,7 @@ class Notebook(models.Model):
         return self.name
 
 class Subject(models.Model):
+    subject_number=models.CharField(max_length=10)
     name=models.CharField(max_length=150)
     level=models.IntegerField(default=1)
     type=models.CharField(max_length=50)

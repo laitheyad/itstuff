@@ -31,4 +31,4 @@ class SubjectSerializer(serializers.HyperlinkedModelSerializer):
     testbank=TestbankSerializer(Testbank.objects.all(),many=True)
     class Meta:
         model = Subject
-        fields = ['pk','name','level','major','description','type','notebook','testbank']
+        fields = ['pk','subject_number','name','level','major','description','type','notebook','testbank']

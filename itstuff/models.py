@@ -32,7 +32,7 @@ class Subject(models.Model):
     type=models.CharField(max_length=50)
     description=models.TextField(blank=True,null=True)
     major=models.ForeignKey(Major,on_delete=models.CASCADE,blank=True)
-    testbank=models.ManyToManyField(Testbank)
-    notebook=models.ManyToManyField(Notebook)
+    testbank=models.ManyToManyField(Testbank,blank=True)
+    notebook=models.ManyToManyField(Notebook,blank=True)
     def __str__(self):
         return self.name

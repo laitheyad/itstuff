@@ -1,11 +1,9 @@
-from django.shortcuts import render
-from .models import *
 from .serializers import *
 from rest_framework import generics
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
-
+from rest_framework import filters
 
 class MajorList(generics.ListCreateAPIView):
     queryset = Major.objects.all()
@@ -14,6 +12,8 @@ class MajorList(generics.ListCreateAPIView):
 class SubjectList(generics.ListCreateAPIView):
     queryset = Subject.objects.all()
     serializer_class = SubjectListSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
 
 class NotebookList(generics.ListCreateAPIView):
     queryset = Notebook.objects.all()

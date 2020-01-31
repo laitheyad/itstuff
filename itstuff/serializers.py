@@ -1,6 +1,7 @@
 from .models import *
 from rest_framework import serializers
-
+from django_filters.rest_framework import FilterSet, filters
+# import rest_framework_filters as filters
 class MajorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Major
@@ -32,3 +33,9 @@ class SubjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Subject
         fields = ['pk','name','level','major','description','type','notebook','testbank']
+
+#
+# class SubjectFilter(filters.FilterSet):
+#     class Meta:
+#         model = Subject
+#         fields = {'name': ['exact', 'in', 'startswith']}

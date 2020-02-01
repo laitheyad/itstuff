@@ -27,8 +27,8 @@ class SubjectListSerializer(serializers.HyperlinkedModelSerializer):
 
 class SubjectSerializer(serializers.HyperlinkedModelSerializer):
     major= MajorSerializer(Major.objects.all())
-    notebook=NotebookSerializer(Notebook.objects.all(),many=True)
-    testbank=TestbankSerializer(Testbank.objects.all(),many=True)
+    # notebook=NotebookSerializer(Notebook.objects.all(),many=True)
+    # testbank=TestbankSerializer(Testbank.objects.all(),many=True)
     class Meta:
         model = Subject
-        fields = ['pk','subject_number','name','level','major','description','type','notebook','testbank']
+        fields = ['pk','subject_number','name','level','major','description','type']

@@ -32,7 +32,7 @@ class Notebook(models.Model):
     name=models.CharField(max_length=150)
     author=models.CharField(max_length=150)
     description=models.TextField(null=True)
-    subject=models.ForeignKey(Subject,on_delete=models.CASCADE,null=True,blank=True)
+    subject=models.ForeignKey(Subject,related_name='notebooks',on_delete=models.CASCADE,null=True,blank=True)
     link=models.URLField(max_length=600)
     def __str__(self):
         return self.name

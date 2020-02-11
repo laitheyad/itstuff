@@ -33,3 +33,8 @@ class SubjectDetail(APIView):
         object=self.get_object(pk)
         serializer=SubjectSerializer(object)
         return Response(serializer.data)
+
+
+class ArticleList(generics.ListCreateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer

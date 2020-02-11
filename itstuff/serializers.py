@@ -32,3 +32,10 @@ class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
         fields = ['pk','subject_number','name','level','major','description','type','notebooks','testbanks']
+
+class ArticleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Article
+        fields=['title','linke','reference']
+
+

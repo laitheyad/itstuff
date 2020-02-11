@@ -44,12 +44,20 @@ class TestbankResource(resources.ModelResource):
 class TestbankAdmin(ImportExportModelAdmin):
     resource_class = TestbankResource
 
+class ArticleResource(resources.ModelResource):
+
+    class Meta:
+        model = Article
+
+class ArticlerAdmin(ImportExportModelAdmin):
+    resource_class = ArticleResource
+
 
 admin.site.register(Major, MajorAdmin)
 admin.site.register(Subject, SubjectAdmin)
 admin.site.register(Notebook, NotebookAdmin)
 admin.site.register(Testbank, TestbankAdmin)
-
+admin.site.register(Article,ArticlerAdmin)
 # # Register your models here.
 # admin.site.register(Subject)
 # # admin.site.register(Notebook)

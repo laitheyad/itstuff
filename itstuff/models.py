@@ -41,6 +41,6 @@ class Article(models.Model):
     title=models.CharField(max_length=150)
     link=models.URLField()
     reference=models.CharField(max_length=100,null=True,blank=True)
-    date=models.DateField()
+    date=models.DateField(null=True,blank=True)
     def __str__(self):
         return self.title

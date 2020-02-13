@@ -39,7 +39,8 @@ class Notebook(models.Model):
 
 class Article(models.Model):
     title=models.CharField(max_length=150)
-    linke=models.URLField()
+    link=models.URLField()
     reference=models.CharField(max_length=100,null=True,blank=True)
+    date=models.DateField()
     def __str__(self):
         return self.title

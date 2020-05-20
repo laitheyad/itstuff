@@ -21,7 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('majors/', views.MajorList.as_view()),
     path('subjects/', views.SubjectList.as_view()),
-    path('optinalSubjects/', views.OptinalSubjectList.as_view()),
     path('notebook/', views.NotebookList.as_view()),
     path('testbanks/', views.TestbankList.as_view()),
     path('articles/',views.ArticleList.as_view()),

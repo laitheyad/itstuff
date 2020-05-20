@@ -24,12 +24,6 @@ class SubjectListSerializer(serializers.HyperlinkedModelSerializer):
         model = Subject
         fields = ['pk','name','level','major']
 
-class OptinalSubjectListSerializer(serializers.HyperlinkedModelSerializer):
-    major= MajorSerializer(Major.objects.all())
-    class Meta:
-        model = Subject
-        fields = ['pk','name','level','major']
-
 
 class SubjectSerializer(serializers.ModelSerializer):
     notebooks=NotebookSerializer(many=True)

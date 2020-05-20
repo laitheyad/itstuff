@@ -15,12 +15,6 @@ class SubjectList(generics.ListCreateAPIView):
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
 
-class OptinalSubjectList(generics.ListCreateAPIView):
-    queryset = OptinalSubject.objects.all()
-    serializer_class = OptinalSubjectListSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
-
 class NotebookList(generics.ListCreateAPIView):
     queryset = Notebook.objects.all()
     serializer_class = NotebookSerializer

@@ -1,5 +1,7 @@
 from django.db import models
 
+
+# Create your models here.
 class Major(models.Model):
     name=models.CharField(max_length=150)
     def __str__(self):
@@ -12,6 +14,8 @@ class Subject(models.Model):
     type=models.CharField(max_length=50)
     description=models.TextField(blank=True,null=True)
     major=models.ForeignKey(Major,on_delete=models.CASCADE,blank=True)
+    # testbank=models.ManyToManyField(Testbank,blank=True)
+    # notebook=models.ManyToManyField(Notebook,blank=True)
     def __str__(self):
         return self.name
 
@@ -40,13 +44,3 @@ class Article(models.Model):
     date=models.DateField(null=True,blank=True)
     def __str__(self):
         return self.title
-
-class OptinalSubject(models.Model):
-    subject_number=models.CharField(max_length=10)
-    name=models.CharField(max_length=150)
-    level=models.IntegerField(default=1)
-    type=models.CharField(max_length=50)
-    description=models.TextField(blank=True,null=True)
-    major=models.ForeignKey(Major,on_delete=models.CASCADE,blank=True)
-    def __str__(self):
-        return self.name

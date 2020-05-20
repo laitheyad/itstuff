@@ -24,6 +24,8 @@ class SubjectResource(resources.ModelResource):
 class SubjectAdmin(ImportExportModelAdmin):
     resource_class = SubjectResource
 
+class OptinalSubjectAdmin(ImportExportModelAdmin):
+    resource_class = OptinalSubject
 
 #Notebook
 class NotebookResource(resources.ModelResource):
@@ -55,6 +57,7 @@ class ArticlerAdmin(ImportExportModelAdmin):
 
 admin.site.register(Major, MajorAdmin)
 admin.site.register(Subject, SubjectAdmin)
+admin.site.register(OptinalSubject,OptinalSubjectAdmin)
 admin.site.register(Notebook, NotebookAdmin)
 admin.site.register(Testbank, TestbankAdmin)
 admin.site.register(Article,ArticlerAdmin)

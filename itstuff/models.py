@@ -16,6 +16,11 @@ class Subject(models.Model):
     major=models.ForeignKey(Major,on_delete=models.CASCADE,blank=True)
     # testbank=models.ManyToManyField(Testbank,blank=True)
     # notebook=models.ManyToManyField(Notebook,blank=True)
+    subject_type = [
+        ('optinal', 'optinal'),
+        ('compulsory', 'compulsory'),
+    ]
+    type = models.CharField(max_length=100, choices=subject_type, default='compulsory')
     def __str__(self):
         return self.name
 

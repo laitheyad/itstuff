@@ -10,7 +10,13 @@ class MajorList(generics.ListCreateAPIView):
     serializer_class = MajorSerializer
 
 class SubjectList(generics.ListCreateAPIView):
-    queryset = Subject.objects.all()
+    queryset = Subject.objects.filter(type='compulsory')
+    serializer_class = SubjectListSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
+
+class OptinalSubjectList(generics.ListCreateAPIView):
+    queryset = Subject.objects.filter(type='optinal')
     serializer_class = SubjectListSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['name']
